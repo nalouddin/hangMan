@@ -1,9 +1,77 @@
 import random
 
-from IPython.core.display_functions import display
+stages = [
+r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''',
+r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''',
+r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''',
+r'''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========
+''',
+r'''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''',
+r'''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''',
+r'''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+'''
+]
+
 
 word_list = ["ardvark", "baboon", "camel"]
 chosen_word = random.choice(word_list)
+
+lives = 6
+
 print(chosen_word)
 
 placeholder = ""
@@ -30,6 +98,14 @@ while not game_over:
             display += "_"
     print(display)
 
+    if guess not in chosen_word:
+        lives -= 1
+        if lives == 0:
+            game_over = True
+            print("You lose.")
+
     if "_" not in display:
         game_over = True
         print("You win!")
+
+    print(stages[lives])
