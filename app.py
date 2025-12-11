@@ -1,77 +1,11 @@
 import random
-
-stages = [
-r'''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''',
-r'''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''',
-r'''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''',
-r'''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========
-''',
-r'''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''',
-r'''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''',
-r'''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-'''
-]
-
-
-word_list = ["ardvark", "baboon", "camel"]
-chosen_word = random.choice(word_list)
-
+from hangman_words  import word_list
+from hangman_art import stages, logo
 lives = 6
 
+print(logo)
+
+chosen_word = random.choice(word_list)
 print(chosen_word)
 
 placeholder = ""
